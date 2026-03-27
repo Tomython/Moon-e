@@ -1,6 +1,6 @@
 {
-    "name": "Hydrogen",
-    "short_name": "Hydrogen",
+    "name": "BlueMoon",
+    "short_name": "BlueMoon",
     "display": "standalone",
     "description": "Lightweight matrix client with legacy and mobile browser support",
     "start_url": "../index.html",
