@@ -7,10 +7,22 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-/** contains styles for everything before the session view, like the session picker, login, load view, ... */
+/** * СТИЛИ СТРУКТУРЫ И АВТОРИЗАЦИИ
+ * Адаптировано под дизайн BlueMoon 
+ */
 
+/* Глобальный фон для экрана входа (если применимо к твоему контейнеру) */
+.SessionPickerView,
+.PasswordLoginView,
+.StartSSOLoginView {
+    background-color: #121212; /* Глубокий темный фон из референса */
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* === ВЫБОР СЕССИИ === */
 .SessionPickerView {
-    padding: 0.4em;
+    padding: 24px 16px;
 }
 
 .SessionPickerView ul {
@@ -19,7 +31,10 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .SessionPickerView li {
-    margin: 0.4em 0;
+    margin: 12px 0;
+    background-color: #1E1E1E;
+    border-radius: 16px;
+    padding: 12px;
 }
 
 .SessionPickerView .session-info {
@@ -29,31 +44,112 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .SessionPickerView .session-info> :not(:first-child) {
-    margin-left: 8px;
+    margin-left: 12px;
 }
 
 .SessionPickerView li .user-id {
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 500;
 }
 
 .SessionPickerView li .error {
     margin: 0 20px;
+    color: #FF453A; /* Красный для ошибок */
 }
 
+/* === ВХОД ПО ПАРОЛЮ === */
 .PasswordLoginView {
-    padding: 0 0.4em 0.4em;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto; /* Центрирование формы */
 }
 
+/* Стилизация текстовых полей */
+.PasswordLoginView input[type="text"],
+.PasswordLoginView input[type="password"],
+.PasswordLoginView input[type="email"] {
+    background-color: #1E1E1E;
+    border: 1px solid transparent;
+    color: #FFFFFF;
+    border-radius: 16px; /* Мягкое скругление инпутов */
+    padding: 18px 16px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.PasswordLoginView input::placeholder {
+    color: #48484A; /* Темно-серый плейсхолдер */
+}
+
+.PasswordLoginView input:focus {
+    border-color: #0A84FF; /* Синий акцент при фокусе */
+    background-color: #242424;
+}
+
+/* Стилизация подписей к полям (Email, Пароль) */
+.PasswordLoginView label {
+    color: #8E8E93;
+    font-size: 13px;
+    margin-bottom: 6px;
+    margin-left: 4px;
+    display: block;
+}
+
+/* Ссылки (Забыли пароль?) */
+.PasswordLoginView a, 
+.login-link {
+    color: #0A84FF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    align-self: flex-end; /* Прижать вправо, как на скрине */
+    margin-top: -4px;
+    margin-bottom: 12px;
+}
+
+/* Главная кнопка "Войти" */
+.PasswordLoginView button[type="submit"],
+.StartSSOLoginView_button {
+    background-color: #2C2C2E; /* Темно-серый для неактивного состояния */
+    color: #636366;
+    border: none;
+    border-radius: 50px; /* Полное скругление (pill-shape) */
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 12px;
+    transition: all 0.2s ease;
+}
+
+/* Активное состояние кнопки */
+.PasswordLoginView button[type="submit"]:not(:disabled):hover,
+.StartSSOLoginView_button:hover {
+    background-color: #0A84FF; /* Ярко-синий */
+    color: #FFFFFF;
+}
+
+/* === SSO И ЗАГРУЗКА === */
 .SessionLoadStatusView > .status, .LoginView_query-spinner {
     display: flex;
     gap: 12px;
+    align-items: center;
+    color: #8E8E93;
 }
 
 .SessionLoadStatusView > .status p, .LoginView_query-spinner p {
     flex: 1;
     margin: 0;
+    font-size: 14px;
 }
 
 .SessionLoadStatusView .spinner {
@@ -63,25 +159,28 @@ Please see LICENSE files in the repository root for full details.
 .StartSSOLoginView {
     display: flex;
     flex-direction: column;
-    padding: 0 0.4em 0;
-}
-
-.StartSSOLoginView_button {
-    flex: 1;
-    margin-top: 12px;
+    padding: 0 16px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .LoginView_separator {
     justify-content: center;
     display: flex;
-    margin: 8px;
+    margin: 24px 8px;
+    color: #48484A;
+    font-size: 14px;
 }
 
 .CompleteSSOView_title {
     display: flex;
     justify-content: center;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
 }
 
 .LoginView_sso {
-    padding: 0.4em 0.4em 0;
+    padding: 16px 16px 0;
 }
