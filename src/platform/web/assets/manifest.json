@@ -2,7 +2,7 @@
     "name": "BlueMoon",
     "short_name": "BlueMoon",
     "display": "standalone",
-    "description": "Lightweight matrix client with legacy and mobile browser support",
+    "description": "A VERY secure messenger by all standards.",
     "start_url": "../index.html",
     "icons": [
         {"src": "icon.png", "sizes": "384x384", "type": "image/png"},
