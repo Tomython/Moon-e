@@ -11,7 +11,7 @@ Please see LICENSE files in the repository root for full details.
 import {RootViewModel} from "../../domain/RootViewModel.js";
 import {createNavigation, createRouter} from "../../domain/navigation/index";
 import {FeatureSet} from "../../features";
-import './ui/css/themes/bluemoon/BlueMoon-theme.css';
+//import './ui/css/themes/bluemoon/BlueMoon-theme.css';
 
 // Don't use a default export here, as we use multiple entries during legacy build,
 // which does not support default exports,
