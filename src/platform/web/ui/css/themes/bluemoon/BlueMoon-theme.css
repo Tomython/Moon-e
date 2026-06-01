@@ -1,0 +1,98 @@
+/* 1. Глобальные переменные (как в Telegram) */
+:root {
+    /* Цветовая схема Telegram (светлая тема) */
+    --tg-bg-page: #ffffff;
+    --tg-bg-chat: #efefef;
+    --tg-primary: #229ed9;
+    --tg-text-primary: #000000;
+    --tg-text-secondary: #707579;
+    --tg-bubble-own: #e4f5fe;
+    --tg-bubble-other: #ffffff;
+    --tg-border: #e7e7e7;
+    --tg-radius-message: 16px;
+    --tg-radius-avatar: 50%;
+    --tg-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Принудительно применяем переменные Hydrogen (если использует свои) */
+.hydrogen-app {
+    --h2-color-primary: var(--tg-primary) !important;
+    --h2-color-background: var(--tg-bg-page) !important;
+    --h2-color-surface: var(--tg-bg-chat) !important;
+    --h2-color-text-primary: var(--tg-text-primary) !important;
+    --h2-color-text-secondary: var(--tg-text-secondary) !important;
+    --h2-font-family-sans: var(--tg-font) !important;
+    --h2-border-radius: var(--tg-radius-message) !important;
+}
+
+/* 2. Оформление списка чатов (как Telegram) */
+.room-list {
+    background: var(--tg-bg-page);
+    border-right: 1px solid var(--tg-border);
+}
+
+.room-list .room-item {
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: background 0.1s;
+}
+
+.room-list .room-item:hover {
+    background: #f0f0f0;
+}
+
+/* 3. Пузырьки сообщений (как в Telegram) */
+.message-bubble {
+    border-radius: var(--tg-radius-message) !important;
+    padding: 8px 12px !important;
+    max-width: 80%;
+    position: relative;
+    word-wrap: break-word;
+}
+
+/* Свои сообщения (справа, голубоватые) */
+.message-bubble--outgoing {
+    background-color: var(--tg-bubble-own) !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+/* Чужие сообщения (слева, белые) */
+.message-bubble--incoming {
+    background-color: var(--tg-bubble-other) !important;
+    border-bottom-left-radius: 4px !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+/* 4. Аватары — круглые */
+.avatar, .room-avatar {
+    border-radius: var(--tg-radius-avatar) !important;
+}
+
+/* 5. Поля ввода (как у Telegram) */
+.input-message {
+    background: var(--tg-bg-page);
+    border: 1px solid var(--tg-border);
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-family: var(--tg-font);
+}
+
+/* 6. Шапка чата */
+.chat-header {
+    background: var(--tg-bg-page);
+    border-bottom: 1px solid var(--tg-border);
+    font-weight: 500;
+}
+
+/* 7. Адаптация под тёмную тему (если пользователь включит в системе) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tg-bg-page: #1f2c33;
+        --tg-bg-chat: #0e1621;
+        --tg-text-primary: #ffffff;
+        --tg-text-secondary: #a9acb0;
+        --tg-bubble-own: #2b5278;
+        --tg-bubble-other: #1f2c33;
+        --tg-border: #2c3e4e;
+    }
+}
