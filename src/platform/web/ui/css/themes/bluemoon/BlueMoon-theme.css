@@ -1,6 +1,5 @@
-/* 1. Глобальные переменные (как в Telegram) */
+/* 1. Глобальные переменные Telegram (светлая тема) */
 :root {
-    /* Цветовая схема Telegram (светлая тема) */
     --tg-bg-page: #ffffff;
     --tg-bg-chat: #efefef;
     --tg-primary: #229ed9;
@@ -14,77 +13,76 @@
     --tg-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Принудительно применяем переменные Hydrogen (если использует свои) */
-.hydrogen-app {
-    --h2-color-primary: var(--tg-primary) !important;
-    --h2-color-background: var(--tg-bg-page) !important;
-    --h2-color-surface: var(--tg-bg-chat) !important;
-    --h2-color-text-primary: var(--tg-text-primary) !important;
-    --h2-color-text-secondary: var(--tg-text-secondary) !important;
-    --h2-font-family-sans: var(--tg-font) !important;
-    --h2-border-radius: var(--tg-radius-message) !important;
-}
-
-/* 2. Оформление списка чатов (как Telegram) */
-.room-list {
-    background: var(--tg-bg-page);
-    border-right: 1px solid var(--tg-border);
-}
-
-.room-list .room-item {
-    border-radius: 8px;
-    margin: 2px 8px;
-    transition: background 0.1s;
-}
-
-.room-list .room-item:hover {
-    background: #f0f0f0;
-}
-
-/* 3. Пузырьки сообщений (как в Telegram) */
-.message-bubble {
-    border-radius: var(--tg-radius-message) !important;
-    padding: 8px 12px !important;
-    max-width: 80%;
-    position: relative;
-    word-wrap: break-word;
-}
-
-/* Свои сообщения (справа, голубоватые) */
-.message-bubble--outgoing {
-    background-color: var(--tg-bubble-own) !important;
-    border-bottom-right-radius: 4px !important;
-}
-
-/* Чужие сообщения (слева, белые) */
-.message-bubble--incoming {
-    background-color: var(--tg-bubble-other) !important;
-    border-bottom-left-radius: 4px !important;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
-}
-
-/* 4. Аватары — круглые */
-.avatar, .room-avatar {
-    border-radius: var(--tg-radius-avatar) !important;
-}
-
-/* 5. Поля ввода (как у Telegram) */
-.input-message {
-    background: var(--tg-bg-page);
-    border: 1px solid var(--tg-border);
-    border-radius: 24px;
-    padding: 10px 16px;
+/* 2. Основные цвета приложения */
+body, .mx_MatrixChat {
+    background: var(--tg-bg-chat);
     font-family: var(--tg-font);
 }
 
-/* 6. Шапка чата */
-.chat-header {
-    background: var(--tg-bg-page);
-    border-bottom: 1px solid var(--tg-border);
-    font-weight: 500;
+/* 3. Список комнат (левый сайдбар) */
+.mx_RoomList {
+    background: var(--tg-bg-page) !important;
+    border-right: 1px solid var(--tg-border);
+}
+.mx_RoomTile {
+    border-radius: 8px;
+    margin: 2px 8px;
+}
+.mx_RoomTile:hover {
+    background: #f0f0f0;
 }
 
-/* 7. Адаптация под тёмную тему (если пользователь включит в системе) */
+/* 4. Шапка чата */
+.mx_HeaderButtons, .mx_RoomHeader {
+    background: var(--tg-bg-page) !important;
+    border-bottom: 1px solid var(--tg-border);
+}
+
+/* 5. Пузырьки сообщений */
+.mx_EventTile {
+    padding: 6px 12px;
+}
+.mx_EventTile_line {
+    max-width: 80%;
+}
+.mx_EventTile_body {
+    border-radius: var(--tg-radius-message) !important;
+    padding: 8px 12px !important;
+    background: var(--tg-bubble-other) !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+.mx_EventTile_own .mx_EventTile_body {
+    background: var(--tg-bubble-own) !important;
+    border-bottom-right-radius: 4px !important;
+}
+.mx_EventTile_own {
+    justify-content: flex-end;
+}
+.mx_EventTile_own .mx_EventTile_line {
+    background: transparent;
+}
+
+/* 6. Аватары круглые */
+.mx_BaseAvatar, .mx_Avatar {
+    border-radius: var(--tg-radius-avatar) !important;
+}
+
+/* 7. Поле ввода сообщения */
+.mx_BasicMessageComposer_input {
+    background: var(--tg-bg-page) !important;
+    border: 1px solid var(--tg-border) !important;
+    border-radius: 24px !important;
+    padding: 10px 16px !important;
+    font-family: var(--tg-font);
+}
+
+/* 8. Имя отправителя */
+.mx_EventTile_sender {
+    color: var(--tg-text-secondary);
+    font-size: 0.85em;
+}
+
+/* 9. Тёмная тема */
 @media (prefers-color-scheme: dark) {
     :root {
         --tg-bg-page: #1f2c33;
